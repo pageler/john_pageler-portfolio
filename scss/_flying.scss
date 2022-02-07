@@ -1,0 +1,84 @@
+// Flying Animation
+.header {
+    color: #fff;
+    font-family: serif;
+}
+
+.fly-in-text {
+    list-style: none;
+    position: relative;
+    margin-top: 4vh;
+    left: 30%;
+    top: 9%;
+    -webkit-transform: translateX(-20%) translateY(-10%);
+    -ms-transform: translateX(-20%) translateY(-10%);
+    transform: translateX(-20%) translateY(-10%);
+}
+
+.fly-in-text li {
+    display: inline-block;
+    font-family: serif;
+    color: $secondary-color;
+    font-size: 2.5em;
+    opacity: 1;
+    transition: all 3s ease;
+}
+
+.fly-in-text.hidden li {
+    opacity: 0;
+}
+
+.fly-in-text.hidden li:nth-child(1) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(2) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(3) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(4) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(5) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(6) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(7) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(8) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(9) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(10) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(11) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(12) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(13) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(14) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(15) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(16) {
+    transform: translateX(-40px) translateY(40px);
+}
+.fly-in-text.hidden li:nth-child(17) {
+    transform: translateX(-40px) translateY(-40px);
+}
+.fly-in-text.hidden li:nth-child(18) {
+    transform: translateX(-40px) translateY(40px);
+}

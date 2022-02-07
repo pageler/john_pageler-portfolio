@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://kit.fontawesome.com/1365cfaeb2.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="css/main.css" />
+        <title>John Pageler - Portfolio</title>
+    </head>
+
+    <body id="bg-img">
+        <header>
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+
+            <nav class="menu">
+                <div class="menu-branding">
+                    <div class="portrait"></div>
+                </div>
+                <ul class="menu-nav">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link"> My Resume </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="work.html" class="nav-link"> Work Sample </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">
+                            Contact Info.
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="home">
+            <div class="fly">
+                <p><h2><i>My mission, is your : </i></h2><span>
+                    <ul class="fly-in-text hidden">
+                    <li><i>m</i></li>
+                    <li><i>a</i></li>
+                    <li><i>r</i></li>
+                    <li><i>k</i></li>
+                    <li><i>e</i></li>
+                    <li><i>t</i></li>
+                    <li></li>
+                    <li class="li-break"></li>
+                    <li><i>e</i></br>
+                    <li><i>x</i></li>
+                    <li><i>p</i></li>
+                    <li><i>a</i></li>
+                    <li><i>n</i></li>
+                    <li><i>s</i></li>
+                    <li><i>i</i></li>
+                    <li><i>o</i></li>
+                    <li><i>n</i></li>
+                    <li><i>!</i></li>
+                    </ul>
+                </span></p>
+            </div>
+
+            <h1 class="lg-heading">
+                John Paul <span class="text-secondary">Pageler Jr.</span>
+            </h1>
+            <h2 class="sm-heading">
+                MERN Full Stack Web Developer, Programmer, Web Designer
+            </h2>
+
+            <div class="icons">
+                <a
+                    href="https://www.linkedin.com/in/john-paul-pageler-jr" target="blank">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://github.com/harakido1" target="blank">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+            </div>
+        </main>
+        
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script>
+            $(function(){
+                setTimeout(function() {
+                    $('.fly-in-text').removeClass('hidden');
+                }, 500);
+            });
+        </script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
