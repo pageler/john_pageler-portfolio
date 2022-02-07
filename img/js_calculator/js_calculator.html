@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="”X-UA-Compatible”" content="”IE" ="edge”" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Calculator</title>
+    <style>
+      body {
+        background: url(https://s-media-cache-ak0.pinimg.com/originals/f2/50/62/f25062b96c7c06f256ad232a84916550.jpg);
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        text-align: center;
+        padding-top: 200px;
+      }
+
+      h2 {
+        margin-top: 100px;
+        color: lightblue;
+        font-weight: bold;
+        font-size: 3em;
+        text-shadow: 2px 4px 5px black;
+      }
+
+      h5 {
+        color: #c0c0c0;
+        font-weight: bold;
+      }
+
+      #calculator {
+        background-color: #4d4d4d;
+        width: 250px;
+        height: 350px;
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 20px;
+        margin: 25px auto;
+        box-shadow: 0px 0px 3px 6px #ccc;
+      }
+
+      #display {
+        margin-bottom: 20px;
+        height: 30px;
+        width: 10em;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 0px 0px 1px 1px black;
+        text-align: right;
+        font: 20px bold;
+      }
+
+      #keys {
+        width: 41px;
+        height: 35px;
+        margin: 4px;
+        box-shadow: 0px 0px 2px 1px black;
+        border-radius: 2px;
+        outline: none;
+      }
+
+      #equals {
+        width: 92px;
+        height: 35px;
+        margin: 4px;
+        box-shadow: 0px 0px 2px 1px black;
+        border-radius: 2px;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>JavaScript Calculator</h2>
+    <div id="calculator">
+      <form>
+        <input type="text" id="display" disabled />
+        <br />
+        <input type="button" value="C" id="keys" onclick='toDisplay("c")' />
+        <input type="button" value="CE" id="keys" onclick="backspace()" />
+        <input type="button" value="X%" id="keys" onclick="percent()" />
+        <input type="button" value="/" id="keys" onclick='toDisplay("/")' />
+        <br />
+        <input type="button" value="7" id="keys" onclick='toDisplay("7")' />
+        <input type="button" value="8" id="keys" onclick='toDisplay("8")' />
+        <input type="button" value="9" id="keys" onclick='toDisplay("9")' />
+        <input type="button" value="*" id="keys" onclick='toDisplay("*")' />
+        <br />
+        <input type="button" value="4" id="keys" onclick='toDisplay("4")' />
+        <input type="button" value="5" id="keys" onclick='toDisplay("5")' />
+        <input type="button" value="6" id="keys" onclick='toDisplay("6")' />
+        <input type="button" value="-" id="keys" onclick='toDisplay("-")' />
+        <br />
+        <input type="button" value="1" id="keys" onclick='toDisplay("1")' />
+        <input type="button" value="2" id="keys" onclick='toDisplay("2")' />
+        <input type="button" value="3" id="keys" onclick='toDisplay("3")' />
+        <input type="button" value="+" id="keys" onclick='toDisplay("+")' />
+        <br />
+        <input type="button" value="." id="keys" onclick='toDisplay(".")' />
+        <input type="button" value="0" id="keys" onclick='toDisplay("0")' />
+        <input type="button" value="=" id="equals" onclick="answer()" />
+      </form>
+      <h5>Developer: John Pageler</h5>
+    </div>
+    <script>
+      var box = document.getElementById("display");
+      // display is the ID for calculator screen.
+
+      function toDisplay(x) {
+        // Set the value buttons on the screen.
+        box.value += x;
+        if (x === "c") {
+          // Set the clear button.
+          box.value = "";
+        }
+      }
+
+      function answer() {
+        x = box.value;
+        x = eval(x);
+        // Perform the calculation and set the result on the screen.
+        box.value = x;
+      }
+
+      function percent() {
+        x = box.value;
+        x = eval(x * 0.01);
+        box.value = x;
+      }
+
+      function backspace() {
+        var screenValue = box.value;
+        var len = screenValue.length - 1;
+        var CE = screenValue.substring(0, len);
+        box.value = CE;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta http-equiv=”X-UA-Compatible” content=”IE=edge”/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1{
+      text-align: center;
+      font-family: Lobster;
+      color:rgb(0,0,255);
+    }
+
+    h3{
+      font-family: New Roman;
+    }
+
+    #searchTerm{
+      width: 60%;
+    }
+
+    .spacer{
+      padding: 5%;
+    }
+
+    body{
+      background:url("https://images2.alphacoders.com/261/26102.jpg") no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"></link>
+  <div class="container-fluid">
+    <div class="spacer"></div>
+    <h1>Wikipedia Search</h1>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png" alt="wikipedia logo" style="float:left" width:200px height:200px>
+      <input class="form-control" id="searchTerm"></input>
+      <button id="btnSearch" class="btn btn-primary">Submit Search</button>
+      <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" class="btn btn-primary">Random Article</a>
+    </div>
+    <div class="spacer"></div>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    $(function () {
+      $('#btnSearch').click(function() {
+        var searchTerm = $('#searchTerm').val();
+        var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format=json&callback=?";
+        $.ajax({
+          type: 'GET',
+          url: url,
+          async: false,
+          dataType: 'json',
+          success: function(data) {
+            $('#output').html('');
+            for(var i=0; i<data[1].length; i++) {
+              $('#output').append('<div><div class="well"><a href='+data[3][i]+'><h3><strong>'+data[1][i]+'</strong></h3>'+'<p>'+data[2][i]+ '</p></a></div></div>');
+            }
+          },
+          error: function(errorMessage) {
+            alert('Error')
+          },
+        })
+      });
+      $('#searchTerm').bind('keypress', function(e) {
+        if(e.keyCode == 13) {
+          $('#btnSearch').click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

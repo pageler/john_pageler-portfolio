@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <title>Drum Pad Game</title>
+   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script  src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> 
+   <style>
+     body{
+      background-image: url("https://images.alphacoders.com/690/690430.jpg");
+      background-size: 100%;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    h1, h5 {
+      text-align: left;
+      font-family: Lobster,sans-serif;
+      color: white;
+      text-shadow: 1px 1px 2px black, 0 0 50px rgb(0, 204, 255), 0 0 10px rgb(0, 143, 179);
+      display: inline;
+      padding: 10px;
+    }
+    #drum-pads {
+      height: 75vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .drum-pad {
+      border: 1px solid Black;
+      height: 20vh;
+      width: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1vw;
+      background-color:  #66ffff;
+    }
+
+    #display {
+      height: 25vh;
+      display: flex;
+      font-size: 70px;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"></link>
+   
+  <body class="container-fluid text-center">
+    <div class="header text-left">
+      <h1> Welcome To My Game Room!
+        <br/>
+      </h1>
+      <h1>Drum Pad Game
+        <br/>
+      </h1>
+      <h5>Developer: John Pageler</h5>
+    </div>
+  <div id='root'></div>
+  <!-- Load Babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const data = [
+      { id: 'snare', letter: 'Q', src: 'https://www.myinstants.com/media/sounds/snare.mp3' },
+      { id: 'bass 1', letter: 'W', src: 'https://www.myinstants.com/media/sounds/bass-drum.mp3' },
+      { id: 'bongo', letter: 'E', src: 'http://tipiwiki.free.fr/snd/Percussion(4e)2.wav' },
+      { id: 'tom tom', letter: 'A', src: 'http://www.denhaku.com/r_box/sr16/sr16tom/loelectm.wav' },
+      { id: 'bass 3', letter: 'S', src: './simplosive-hugekicks024_-_fm_-_158_sr9.mp3' },
+      { id: 'shotgun', letter: 'D', src: 'http://david.guerrero.free.fr/Effects/ShotgunReload.wav' },
+      { id: 'high hat', letter: 'Z', src: 'http://www.denhaku.com/r_box/tr707/closed.wav' },
+      { id: 'drum hit', letter: 'X', src: './2000s-clicky-acoustic-snare-sound-a-key-02-WDx.wav' },
+      { id: 'laser', letter: 'C', src: 'http://www.sa-matra.net/sounds/starcontrol/Umgah-Backzip.wav'  },
+    ]
+
+    class DrumPad extends React.Component {
+      componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown)
+        window.focus()
+      }
+      componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown)
+      }
+      
+      handleKeyDown = e => {
+        if(e.keyCode === this.props.letter.charCodeAt()) {
+          this.audio.play()
+          this.audio.currentTime = 0
+          this.props.handleDisplay(this.props.id)
+        }
+      }
+      handleClick = () => {
+        this.audio.play()
+        this.audio.currentTime = 0
+        this.props.handleDisplay(this.props.id)
+      }
+      render() {
+        return (
+          <div 
+            className='drum-pad' 
+            id={this.props.id}
+            onClick={this.handleClick}
+          >
+            <h1>{this.props.letter}</h1>
+            <audio
+              ref={ref => this.audio = ref} // reference to the DOM audio element by 'this.audio'.
+              className="clip"
+              src={this.props.src} 
+              id={this.props.letter}
+            ></audio>
+          </div>
+        )
+      }
+    }
+
+    class App extends React.Component {
+      constructor(props) {
+        super (props)
+        this.state = {
+          display: 'Click or Press Key'
+        }
+      }
+      handleDisplay = display => this.setState({ display })
+      render() {
+        return (
+          <div id='drum-machine'>
+            <div id='display'>{this.state.display}</div>
+            <div id='drum-pads'>
+            {data.map(d => (
+              <DrumPad 
+                key={d.id}
+                id={d.id}
+                letter={d.letter}
+                src={d.src}
+                handleDisplay = {this.handleDisplay}
+              />
+            ))}
+            </div>
+          </div>
+        )
+      };
+    };
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
