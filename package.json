@@ -1,5 +1,5 @@
 {
-    "name": "john_pageler-2021-portfolio",
+    "name": "john_pageler-2022-portfolio",
     "version": "1.0.0",
     "description": "Responsive portfolio website",
     "main": "index.js",
@@ -8,7 +8,12 @@
         "sass": "node-sass -w scss/ -o dist/css/ --recursive",
         "deploy": "gh-pages -d dist"
     },
-    "keywords": [],
+    "keywords": [
+        "John Paul Pageler Jr",
+        "John Pageler",
+        "john pageler",
+        "john pageler - portfolio"
+    ],
     "author": "John Pageler",
     "license": "MIT",
     "dependencies": {
