@@ -17,6 +17,7 @@
     "author": "John Pageler",
     "license": "MIT",
     "dependencies": {
+        "gh-pages": "^3.2.3",
         "node-sass": "^6.0.1"
     }
 }
