@@ -8,7 +8,7 @@
         "sass": "node-sass -w scss/ -o dist/css/ --recursive",
         "deploy": "gh-pages -d dist",
         "predeploy": "npm run build",
-        "build": "gh-pages -d build"
+        "build": "gh-pages -d dist"
     },
     "keywords": [
         "John Paul Pageler Jr",
